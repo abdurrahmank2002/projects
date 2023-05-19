@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+</head>
+
+<body>
+
+    <div class="bg-dark text-light text-center py-2">Manage Seller</div>
+    <div class="container">
+        <div class="modal fade" id="usermodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add or Edit Sellers</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <form action="page3.php" id="addform" action="post" enctype="multipart/form-data" class="mt-5">
+                            <div class="container" id="one" class="">
+                                <h3 style="text-align:center" class="italic mt-3">
+
+                                    ADD New Product</h3><br>
+                                <hr>
+                                <div class="row ">
+
+                                    <div class="form-group col-6">
+                                        <label for=" name ">Name:</label>
+                                        <input type="text " class="form-control " id="name " name="name " required>
+                                    </div>
+                                    <div class="form-group col-6 ">
+                                        <label for="password ">Password:</label>
+                                        <input type="text " class="form-control " id="password " name="password " required>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="form-group col-6 ">
+                                        <div class="form-group">
+                                            <label for="gender">Gender</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+                                                <label class="form-check-label" for="male">
+                                            Male
+                                          </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                                                <label class="form-check-label" for="female">
+                                            Female
+                                          </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="gender" id="other" value="other">
+                                                <label class="form-check-label" for="other">
+                                            Other
+                                          </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group col-6 ">
+                                        <label for="dob ">DOB:</label>
+                                        <input type="date" class="form-control " id="dob " name="dob " required>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="form-group col-6 ">
+                                        <label for="street ">Street:</label>
+                                        <input type="text " class="form-control " id="street " name="street " required>
+                                    </div>
+                                    <div class="form-group col-6 ">
+                                        <label for="city">city:</label><br>
+                                        <input type="text" id=" city" name="city " accept="image/* ">
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="form-group col-6 ">
+                                        <label for="phone ">Phone:</label>
+                                        <input type="number" class="form-control " id="phone " maxlength="10" minlength="10" name="phone " required>
+                                    </div>
+                                    <div class="form-group col-6 mt-4 ">
+                                        <label for="photo">photo:</label>
+                                        <input type="file" id=" photo " class="custom-file-label" name="photo " accept="image/* ">
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" name="submit">submit</button>
+                        <button type="button" name="close" class="btn btn-primary">Cose</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"> <i class="fa-solid fa-magnifying-glass"></i></span>
+                            <input type="text" class="form-control text-dark" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                    </div>
+                    <div class="col-2"> <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#usermodal">Add New Seller</button></div>
+
+
+                </div>
+            </div>
+        </div>
+        <!--table-->
+        <table class="table table-bordered table-striped " id="usertable">
+            <thead class="table-dark">
+                <tr>
+
+
+                    <th>Name</th>
+                    <th>Password</th>
+                    <th>Gender</th>
+                    <th>DOB</th>
+                    <th>Street</th>
+                    <th>City</th>
+                    <th>Phone</th>
+                    <th>Photo</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="two">
+
+
+                </tr>
+                <tr class="two">
+
+
+                </tr>
+                <tr class="two">
+                </tr>
+            </tbody>
+        </table>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery-3.0.0.min.js"></script>
+        <!-- sidebar -->
+        <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="js/custom.js"></script>
+</body>
+<!--pagination-->
+
+<nav aria-label="Page navigation example" id="pagination">
+    <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+    </ul>
+</nav>
+
+</html>
+<!---connection--->
+<!-- <?php
+// Assuming you have established a database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "projects";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+// Get the values from the HTML form or any other source
+$name = $_POST['name'];
+$password = $_POST['password'];
+$gender = $_POST['gender'];
+$dob = $_POST['dob'];
+$street = $_POST['street'];
+$city = $_POST['city'];
+$phone = $_POST['phone'];
+$photo = $_POST['photo'];
+$operation = $_POST['operation'];
+
+// Prepare the SQL query
+$query = "INSERT INTO seller (name, password, gender, dob, street, city, phone, photo, operation) VALUES ('$name', '$password', '$gender', '$dob', '$street', '$city', '$phone', '$photo', '$operation')";
+
+// Execute the query
+$result = mysqli_query($connection, $query);
+
+// Check if the insertion was successful
+if ($result) {
+    echo "Data inserted successfully.";
+} else {
+    echo "Error: " . mysqli_error($connection);
+}
+
+// Close the database connection
+mysqli_close($connection);
+?> -->
